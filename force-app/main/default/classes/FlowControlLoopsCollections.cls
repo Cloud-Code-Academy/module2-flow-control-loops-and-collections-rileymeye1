@@ -66,7 +66,12 @@ public with sharing class FlowControlLoopsCollections {
         // Initialize largestNum as null
         Integer largestNum = null;
 
-        return null; // Replace null with the variable you used to store the result
+        if (num1 != null && num2 != null) {
+            largestNum = Math.max(num1, num2);
+            return largestNum;
+        } else {
+            return null;
+        }
     }
 
 
