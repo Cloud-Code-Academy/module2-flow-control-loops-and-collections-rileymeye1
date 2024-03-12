@@ -108,7 +108,17 @@ public with sharing class FlowControlLoopsCollections {
      * @return A string indicating whether the number is "Even" or "Odd", or null if the number is null.
      */
     public static String checkEvenOdd(Integer a) {
-        return null; // Replace null with the variable you used to store the result
+        final Integer DENOMINATOR = 2;
+        
+        if (a != null) {
+            if (Math.mod(a, DENOMINATOR) == 0) {
+                return 'Even';
+            } else {
+                return 'Odd';
+            }
+        } else {
+            return null;
+        }
     }
 
     /**
