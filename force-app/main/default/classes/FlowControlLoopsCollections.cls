@@ -293,9 +293,12 @@ public with sharing class FlowControlLoopsCollections {
         // Create a new Set of strings
         Set<String> stringSet = new Set<String>();
 
-        //add strings to the set
+       for (Integer i = 0, len = inputList.size(); i < len; i++) {
+            // Add each string in the inputList to the Set
+		    stringSet.add(inputList.get(i));
+       }
 
-        return null; // Replace null with the variable you used to store the result
+        return stringSet;
     }
 
     /**
