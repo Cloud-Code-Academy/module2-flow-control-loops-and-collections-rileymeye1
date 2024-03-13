@@ -338,20 +338,17 @@ public with sharing class FlowControlLoopsCollections {
         for (Integer i = 0, len = words.size(); i < len; i++) {
             // If the word is found, set the index as the iteration number (0, 1, 2, 3...)
             if (words.get(i) == wordToFind) {
+                // Set found to i and break the loop, since we found the word
                 found = i;
-                // If the current word is the word to find, exit the loop
                 break;
-            } else {
-                // If the word isn't found, keep going
-                continue;
             }
         }
 
         if (found != null) {
             return found;
-        } else {
-            return NOT_FOUND;
         }
+        
+        return NOT_FOUND;
     }
 
     /**
