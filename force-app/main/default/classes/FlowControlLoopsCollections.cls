@@ -359,10 +359,20 @@ public with sharing class FlowControlLoopsCollections {
      * @return The total value in dollars, stopped at the point when it exceeds 40 dollars.
      */
     public static Decimal countMoney() {
+        Decimal total = 0;
         // The list of money in the wallet, represented in dollars and cents
         List<Decimal> moneyInWallet = new List<Decimal>{0.50, 10, 3.84, 24.60, 9.08, 50, 4.90}; //DO NOT CHANGE
+        
+        for (Integer i = 0, len = moneyInWallet.size(); i < len; i++) {
+            // Add the money to the total and stop counting if the total is more than 40 dollars
+            if (total > 40) {
+                break;
+            } else {
+                total += moneyInWallet.get(i);
+            }
+        }
 
-        return null; // Replace null with the variable you used to store the result
+        return total;
     }
 
     /**
