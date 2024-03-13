@@ -14,7 +14,7 @@
 * in flow control, loops, and collections. By mastering these concepts, developers will be able to write more
 * efficient and effective code in their Salesforce projects.
 *
-* @author Your Name
+* @author Riley Meyer
 */
 
 public with sharing class FlowControlLoopsCollections {
@@ -31,9 +31,9 @@ public with sharing class FlowControlLoopsCollections {
     public static String helloWorld(Integer x, Integer y) {
         if (x != null && y != null && x > y) {
             return 'Hello World!';
-        } else {
-            return null;
         }
+        
+        return null;
     }
 
     /**
@@ -50,9 +50,9 @@ public with sharing class FlowControlLoopsCollections {
         
         if (age >= VOTING_AGE) {
             return true;
-        } else {
-            return false;
         }
+        
+        return false;
     }
 
     /**
@@ -71,9 +71,9 @@ public with sharing class FlowControlLoopsCollections {
         if (num1 != null && num2 != null) {
             largestNum = Math.max(num1, num2);
             return largestNum;
-        } else {
-            return null;
         }
+        
+        return null;
     }
 
 
@@ -86,16 +86,14 @@ public with sharing class FlowControlLoopsCollections {
      * @return A string indicating whether the number is "Positive", "Negative", or "Zero", or null if the number is null.
      */
     public static String checkNumber(Integer a) {
-        if (a != null) {
-            if (a > 0) {
-                return 'Positive';
-            } else if (a < 0) {
-                return 'Negative';
-            } else {
-                return 'Zero';
-            }
-        } else {
+        if (a == null) {
             return null;
+        } else if (a > 0) {
+            return 'Positive';
+        } else if (a < 0) {
+            return 'Negative';
+        } else {
+            return 'Zero';
         }
     }
 
@@ -110,14 +108,12 @@ public with sharing class FlowControlLoopsCollections {
     public static String checkEvenOdd(Integer a) {
         final Integer DENOMINATOR = 2;
         
-        if (a != null) {
-            if (Math.mod(a, DENOMINATOR) == 0) {
-                return 'Even';
-            } else {
-                return 'Odd';
-            }
-        } else {
+        if (a == null) {
             return null;
+        } else if (Math.mod(a, DENOMINATOR) == 0) {
+            return 'Even';
+        } else {
+            return 'Odd';
         }
     }
 
@@ -132,12 +128,12 @@ public with sharing class FlowControlLoopsCollections {
         if (a != null) {
             if (String.isEmpty(a) == true) {
                 return 'Empty';
-            } else {
-                return 'Contains Text';
             }
-        } else {
-            return 'Null';
+            
+            return 'Contains Text';
         }
+        
+        return 'Null';
     }
 
     /**
@@ -238,11 +234,8 @@ public with sharing class FlowControlLoopsCollections {
      */
     public static List<Integer> createAndPopulateList() {
         // Create a new list of integers
-        List<Integer> integerList = new List<Integer>();
-        // Add the integers 1, 2, and 3 to the list
-        integerList.add(1);
-        integerList.add(2);
-        integerList.add(3);
+        List<Integer> integerList = new List<Integer>{1, 2, 3};
+
         // Return the populated list
         return integerList;
     }
@@ -293,9 +286,9 @@ public with sharing class FlowControlLoopsCollections {
         // Create a new Set of strings
         Set<String> stringSet = new Set<String>();
 
-        for (Integer i = 0, len = inputList.size(); i < len; i++) {
+        for (String item : inputList) {
             // Add each string in the inputList to the Set
-		    stringSet.add(inputList.get(i));
+		    stringSet.add(item);
         }
 
         return stringSet;
@@ -311,11 +304,11 @@ public with sharing class FlowControlLoopsCollections {
         List<Integer> numbers = new List<Integer>{-1, 2, -3, 4, -5, 6}; //DO NOT CHANGE
         Integer sum = 0;
 
-        for (Integer i = 0, len = numbers.size(); i < len; i++) {
-            if ( numbers.get(i) < 0) {
+        for (Integer num : numbers) {
+            if ( num < 0) {
                 continue;
             } else {
-                sum += numbers.get(i);
+                sum += num;
             }
         }
 
@@ -340,12 +333,8 @@ public with sharing class FlowControlLoopsCollections {
             if (words.get(i) == wordToFind) {
                 // Set found to i and break the loop, since we found the word
                 found = i;
-                break;
+                return found;
             }
-        }
-
-        if (found != null) {
-            return found;
         }
         
         return NOT_FOUND;
@@ -363,12 +352,12 @@ public with sharing class FlowControlLoopsCollections {
         // The list of money in the wallet, represented in dollars and cents
         List<Decimal> moneyInWallet = new List<Decimal>{0.50, 10, 3.84, 24.60, 9.08, 50, 4.90}; //DO NOT CHANGE
         
-        for (Integer i = 0, len = moneyInWallet.size(); i < len; i++) {
+        for (Decimal amount : moneyInWallet) {
             // Add the money to the total and stop counting if the total is more than 40 dollars
             if (total > 40) {
                 break;
             } else {
-                total += moneyInWallet.get(i);
+                total += amount;
             }
         }
 
