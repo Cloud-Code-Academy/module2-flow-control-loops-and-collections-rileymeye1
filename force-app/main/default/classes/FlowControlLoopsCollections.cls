@@ -212,12 +212,10 @@ public with sharing class FlowControlLoopsCollections {
     public static String repeatString(String inputString, Integer repeatCount) {
         // Initialize the result String
         String strResult = '';
-        Integer counter = 0;
         // Use a for loop to append the inputString to the result string repeatCount times
         for (Integer i = 0; i < repeatCount; i++) {
-            if (counter < repeatCount - 1) {
+            if (i < repeatCount - 1) {
                 strResult += inputString + '; ';
-                counter ++;
             } else {
                 strResult += inputString;
             }
