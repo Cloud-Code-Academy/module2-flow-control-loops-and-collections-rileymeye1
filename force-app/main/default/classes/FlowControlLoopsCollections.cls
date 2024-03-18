@@ -283,13 +283,7 @@ public with sharing class FlowControlLoopsCollections {
      * @return A Set of unique strings.
      */
     public static Set<String> createStringSet(List<String> inputList) {
-        // Create a new Set of strings
-        Set<String> stringSet = new Set<String>();
-
-        for (String item : inputList) {
-            // Add each string in the inputList to the Set
-		    stringSet.add(item);
-        }
+        Set<String> stringSet = new Set<String>(inputList);
 
         return stringSet;
     }
@@ -324,7 +318,7 @@ public with sharing class FlowControlLoopsCollections {
      * @return The position of the word in the list as a string or -1 if the word was not found.
      */
     public static Integer findWordInList(String wordToFind, List<String> words) {
-        return word.indexOf(wordToFind);
+        return words.indexOf(wordToFind);
     }
 
     /**
